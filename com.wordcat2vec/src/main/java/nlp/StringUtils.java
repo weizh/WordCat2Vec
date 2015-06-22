@@ -36,6 +36,8 @@ public class StringUtils {
 	static Pattern email = Pattern.compile("^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$");
 
 	public static String normalize(String w) {
+		if (w.length() > 20)
+			return "[UNK]";
 		Matcher emails = email.matcher(w);
 		if (emails.matches())
 			return ("[URL]");
